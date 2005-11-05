@@ -1,0 +1,30 @@
+process PROD = 
+{
+
+  module print = AsciiOutputModule { }
+
+  source = PoolSource {
+     untracked string fileName = 'simevent.root'
+     untracked int32 maxEvents = -1
+     untracked uint32 debugVebosity = 10
+     untracked bool   debugFlag     = true
+  }
+
+  es_source = XMLIdealGeometryESSource
+   { string GeometryConfiguration = "../../../SimG4Core/Application/test/TESTconfiguration.xml" }
+
+
+  es_module = EcalBarrelGeometryEP {}
+  es_module = HcalHardcodeGeometryEP {}
+  es_module = CaloTowerHardcodeGeometryEP {}
+  es_module = CaloGeometryBuilder {}
+
+  module ecalSim = EcalDigiProducer
+  {
+  }
+
+
+  path p = { ecalSim }
+
+}
+

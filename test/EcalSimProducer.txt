@@ -11,7 +11,10 @@ process PROD =
   }
 
   es_source = XMLIdealGeometryESSource
-   { string GeometryConfiguration = "../../../SimG4Core/Application/test/TESTconfiguration.xml" }
+   {
+      FileInPath GeometryConfiguration="Geometry/CaloEventSetup/test/TESTconfiguration.xml"
+      string rootNodeName = ""
+   }
 
 
   es_module = EcalBarrelGeometryEP {}

@@ -16,6 +16,19 @@ process PROD =
       string rootNodeName = ""
    }
 
+   module mix = MixingModule {
+     secsource input = PoolSecondarySource  {
+       string fileName = "/afs/cern.ch/user/u/uberthon/public/CMSSW_0_2_0/src/SimG4Core/Application/test/simevent.root"
+         bool random = true
+         bool no_reuse = true
+      }
+      string type = "fixed"
+      double average_number = 0
+      int32 minbunch =-1
+      int32 maxbunch =2
+      int32 bunchspace =25
+   }
+
 
   es_module = EcalBarrelGeometryEP {}
   es_module = HcalHardcodeGeometryEP {}
@@ -27,7 +40,7 @@ process PROD =
   }
 
 
-  path p = { ecalSim }
+  path p = { mix, ecalSim }
 
 }
 

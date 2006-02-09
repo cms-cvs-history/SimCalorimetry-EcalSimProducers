@@ -4,7 +4,8 @@ process PROD =
   module print = AsciiOutputModule { }
 
   source = PoolSource {
-     untracked string fileName = 'e100.root'
+#     untracked string fileName = '/afs/cern.ch/user/g/govoni/public/CMSSW/rootfiles/simevent.root'
+     untracked string fileName = '/afs/cern.ch/user/g/govoni/public/CMSSW/rootfiles/e100.root'
      untracked int32 maxEvents = -1
      untracked uint32 debugVebosity = 10
      untracked bool   debugFlag     = true
@@ -16,9 +17,14 @@ process PROD =
       string rootNodeName = ""
    }
 
+	module out = PoolOutputModule {	
+	       string fileName = 'digis.root'
+	}
+
    module mix = MixingModule {
          secsource input = PoolRASource  {
-                vstring fileNames = {'e100.root'}
+#			       vstring fileNames = {'/afs/cern.ch/user/g/govoni/public/CMSSW/rootfiles/simevent.root'}
+			       vstring fileNames = {'/afs/cern.ch/user/g/govoni/public/CMSSW/rootfiles/e100.root'}
                    string type = "poisson"
                    double averageNumber = 0
                    int32 minBunch = xxx
@@ -39,7 +45,7 @@ process PROD =
   }
 
 
-  path p = { mix, ecalSim }
+  path p = { mix, ecalSim, out }
 
 }
 

@@ -1,8 +1,9 @@
-process PROD = 
+process testECALDigi = 
 {
 
   module print = AsciiOutputModule { }
 
+  # input
   source = PoolSource {
 #     untracked string fileName = '/afs/cern.ch/user/g/govoni/public/CMSSW/rootfiles/simevent.root'
      untracked string fileName = '/afs/cern.ch/user/g/govoni/public/CMSSW/rootfiles/e100.root'
@@ -11,13 +12,18 @@ process PROD =
      untracked bool   debugFlag     = true
   }
 
+  # geometry
   es_source = XMLIdealGeometryESSource
    {
-      FileInPath GeometryConfiguration="Geometry/CaloEventSetup/test/TESTconfiguration.xml"
+#      FileInPath GeometryConfiguration = "Geometry/CMSCommonData/data/configuration.xml"
+      FileInPath GeometryConfiguration = "SimG4CMS/Calo/test/data/testConfiguration.xml"
+#     FileInPath GeometryConfiguration="Geometry/CaloEventSetup/test/TESTconfiguration.xml"
       string rootNodeName = ""
    }
-
-	module out = PoolOutputModule {	
+  
+  # output
+  module out = PoolOutputModule 
+   {	
 	       string fileName = 'digis.root'
 	}
 
@@ -36,6 +42,7 @@ process PROD =
 
 
   es_module = EcalBarrelGeometryEP {}
+  es_module = EcalEndcapGeometryEP {}
   es_module = HcalHardcodeGeometryEP {}
   es_module = CaloTowerHardcodeGeometryEP {}
   es_module = CaloGeometryBuilder {}
@@ -45,7 +52,7 @@ process PROD =
   }
 
 
-  path p = { mix, ecalSim, out }
-
+  path p = { mix, ecalSim }
+  endpath fine = { out }
 }
 

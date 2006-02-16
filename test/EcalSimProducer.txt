@@ -24,13 +24,13 @@ process testECALDigi =
   # output
   module out = PoolOutputModule 
    {	
-	       string fileName = 'digis.root'
+	       untracked string fileName = 'digis.root'
 	}
 
    module mix = MixingModule {
          secsource input = PoolRASource  {
-#			       vstring fileNames = {'/afs/cern.ch/user/g/govoni/public/CMSSW/rootfiles/simevent.root'}
-			       vstring fileNames = {'/afs/cern.ch/user/g/govoni/public/CMSSW/rootfiles/e100.root'}
+#			       untracked vstring fileNames = {'/afs/cern.ch/user/g/govoni/public/CMSSW/rootfiles/simevent.root'}
+			       untracked vstring fileNames = {'/afs/cern.ch/user/g/govoni/public/CMSSW/rootfiles/e100.root'}
                    string type = "poisson"
                    double averageNumber = 0
                    int32 minBunch = xxx

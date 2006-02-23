@@ -40,7 +40,7 @@ process testECALDigi =
           int32 bunchspace = 25
    }
 
-
+  es_module = EcalPreshowerGeometryEP {}
   es_module = EcalBarrelGeometryEP {}
   es_module = EcalEndcapGeometryEP {}
   es_module = HcalHardcodeGeometryEP {}

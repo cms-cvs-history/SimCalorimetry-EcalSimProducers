@@ -49,8 +49,9 @@ process testECALDigi =
 
   module ecalSim = EcalDigiProducer
   {
+    untracked bool doNoise = true
     untracked bool doESNoise = true
-    untracked double ESNoiseSigma = 15
+    untracked double ESNoiseSigma = 15.
   }
 
 

@@ -4,7 +4,7 @@
 /*
  * \file EcalDigiTask.h
  *
- * $Date: 2006/01/11 11:56:47 $
+ * $Date: 2006/02/27 08:42:10 $
  * $Revision: 1.1 $
  * \author F. Cossutti
  *
@@ -31,7 +31,6 @@
 #include "SimDataFormats/Vertex/interface/EmbdSimVertexContainer.h"
 #include "SimDataFormats/CaloHit/interface/PCaloHit.h"
 #include "SimDataFormats/CaloHit/interface/PCaloHitContainer.h"
-#include "SimDataFormats/EcalValidation/interface/PEcalValidInfo.h"
 
 #include "DataFormats/EcalDigi/interface/EBDataFrame.h"
 #include "DataFormats/EcalDigi/interface/EEDataFrame.h"

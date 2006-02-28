@@ -1,7 +1,7 @@
 /*
  * \file EcalDigiTask.cc
  *
- * $Date: 2006/01/05 08:59:20 $
+ * $Date: 2006/02/27 08:42:10 $
  * $Revision: 1.1 $
  * \author F. Cossutti
  *
@@ -200,7 +200,8 @@ void EcalDigiTask::analyze(const Event& e, const EventSetup& c){
     double htheta = hmom.theta();
     double heta = -log(tan(htheta * 0.5));
     double hphi = hmom.phi();
-
+    hphi = (hphi>=0) ? hphi : hphi+2*M_PI;
+    hphi = hphi / M_PI * 180.;
     if (verbose_) {
       cout<< "Particle gun type form MC = "<< abs((*p)->pdg_id()) << endl; 
       cout<< "Energy = "<< (*p)->momentum().e() << " Eta = " << heta << " Phi = " << hphi << endl;  
@@ -423,3 +424,6 @@ void EcalDigiTask::analyze(const Event& e, const EventSetup& c){
 
 }
 
+//define this as a plug-in
+DEFINE_FWK_MODULE(EcalDigiTask)
+                                                                                                                                                             

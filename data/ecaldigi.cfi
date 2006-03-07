@@ -1,0 +1,7 @@
+module ecaldigi = EcalDigiProducer
+{
+  untracked bool doNoise = true
+  untracked bool doESNoise = true
+  untracked double ESNoiseSigma = 15.
+}
+

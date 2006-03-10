@@ -4,8 +4,8 @@
 /*
  * \file EcalDigiTask.h
  *
- * $Date: 2006/02/27 08:42:10 $
- * $Revision: 1.1 $
+ * $Date: 2006/02/28 18:18:47 $
+ * $Revision: 1.2 $
  * \author F. Cossutti
  *
 */
@@ -19,6 +19,7 @@
 #include "FWCore/Framework/interface/MakerMacros.h"
 
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
+#include "FWCore/MessageLogger/interface/MessageLogger.h"
 
 #include "DQMServices/Core/interface/DaqMonitorBEInterface.h"
 #include "DQMServices/Daemon/interface/MonitorDaemon.h"
@@ -82,7 +83,12 @@ private:
  DaqMonitorBEInterface* dbe_;
  
  string outputFile_;
+ 
+ map<int, double, less<int> > gainConv_;
 
+ double barrelADCtoGeV_;
+ double endcapADCtoGeV_;
+ 
  MonitorElement* meGunEnergy_;
  MonitorElement* meGunEta_;
  MonitorElement* meGunPhi_;   
@@ -93,8 +99,15 @@ private:
  MonitorElement* meEBDigiADCGlobal_;
  MonitorElement* meEEDigiADCGlobal_;
 
- MonitorElement* meEBDigiADC_[10];
- MonitorElement* meEEDigiADC_[10];
+ MonitorElement* meEBDigiADCAnalog_[10];
+ MonitorElement* meEEDigiADCAnalog_[10];
+
+ MonitorElement* meEBDigiADCg1_[10];
+ MonitorElement* meEBDigiADCg6_[10];
+ MonitorElement* meEBDigiADCg12_[10];
+ MonitorElement* meEEDigiADCg1_[10];
+ MonitorElement* meEEDigiADCg6_[10];
+ MonitorElement* meEEDigiADCg12_[10];
  MonitorElement* meESDigiADC_[3];
 
  MonitorElement* meEBDigiGain_[10];

@@ -124,6 +124,73 @@ void DigiPlots()
    Ecal->Print("MaxADC_over_Sim_Ratio.eps");
  } 
 
+ if (1) {
+   TCanvas * Ecal = new TCanvas("Ecal","Ecal",800,1000);
+   Ecal->Divide(1,2);
+
+   TH1 * meEBDigiSimRatiogt10ADC_;
+   rfile->GetObject("DQMData/EcalDigiTask/EcalDigiTask Barrel maximum Digi over Sim ratio gt 10 ADC;1",meEBDigiSimRatiogt10ADC_);
+   meEBDigiSimRatiogt10ADC_;
+
+   TH1 * meEEDigiSimRatiogt10ADC_;
+   rfile->GetObject("DQMData/EcalDigiTask/EcalDigiTask Endcap maximum Digi over Sim ratio gt 10 ADC;1",meEEDigiSimRatiogt10ADC_);
+   meEEDigiSimRatiogt10ADC_;
+
+   Ecal->cd(1);
+   gPad->SetLogy(0);
+   meEBDigiSimRatiogt10ADC_->Draw();
+   gPad->SetLogy(1);
+   Ecal->cd(2);
+   gPad->SetLogy(0);
+   meEEDigiSimRatiogt10ADC_->Draw();
+   gPad->SetLogy(1);
+   Ecal->Print("MaxADC_over_Sim_Ratio_gt10ADC.eps");
+ } 
+
+ if (1) {
+   TCanvas * Ecal = new TCanvas("Ecal","Ecal",800,1000);
+   Ecal->Divide(1,2);
+
+   TH1 * meEBDigiSimRatiogt100ADC_;
+   rfile->GetObject("DQMData/EcalDigiTask/EcalDigiTask Barrel maximum Digi over Sim ratio gt 100 ADC;1",meEBDigiSimRatiogt100ADC_);
+   meEBDigiSimRatiogt100ADC_;
+
+   TH1 * meEEDigiSimRatiogt100ADC_;
+   rfile->GetObject("DQMData/EcalDigiTask/EcalDigiTask Endcap maximum Digi over Sim ratio gt 100 ADC;1",meEEDigiSimRatiogt100ADC_);
+   meEEDigiSimRatiogt100ADC_;
+
+   Ecal->cd(1);
+   gPad->SetLogy(0);
+   meEBDigiSimRatiogt100ADC_->Draw();
+   gPad->SetLogy(1);
+   Ecal->cd(2);
+   gPad->SetLogy(0);
+   meEEDigiSimRatiogt100ADC_->Draw();
+   gPad->SetLogy(1);
+   Ecal->Print("MaxADC_over_Sim_Ratio_gt100ADC.eps");
+ } 
+
+ // Gain switch check
+
+ if (1) {
+   TCanvas * Ecal = new TCanvas("Ecal","Ecal",800,1000);
+   Ecal->Divide(1,2);
+
+   TH1 * meEBnADCafterSwitch_;
+   rfile->GetObject("DQMData/EcalDigiTask/EcalDigiTask Barrel ADC counts after gain switch;1", meEBnADCafterSwitch_) ;
+   meEBnADCafterSwitch_;
+
+   TH1 * meEEnADCafterSwitch_;
+   rfile->GetObject("DQMData/EcalDigiTask/EcalDigiTask Endcap ADC counts after gain switch;1", meEEnADCafterSwitch_) ;
+   meEEnADCafterSwitch_;
+
+   Ecal->cd(1);
+   meEBnADCafterSwitch_->Draw();
+   Ecal->cd(2);
+   meEEnADCafterSwitch_->Draw();
+   Ecal->Print("Counts_after_gain_switch.eps");
+ }
+
  // pedestal for pre-sample
 
  if (1) {
@@ -152,19 +219,38 @@ void DigiPlots()
    TCanvas * Ecal = new TCanvas("Ecal","Ecal",800,1000);
    Ecal->Divide(1,2);
 
-   TH1 * meEBMaximum_;
-   rfile->GetObject("DQMData/EcalDigiTask/EcalDigiTask Barrel maximum position;1",meEBMaximum_);
-   meEBMaximum_;
+   TH1 * meEBMaximumgt100ADC_;
+   rfile->GetObject("DQMData/EcalDigiTask/EcalDigiTask Barrel maximum position gt 100 ADC;1",meEBMaximumgt100ADC_);
+   meEBMaximumgt100ADC_;
 
-   TH1 * meEEMaximum_;
-   rfile->GetObject("DQMData/EcalDigiTask/EcalDigiTask Endcap maximum position;1",meEEMaximum_);
-   meEEMaximum_;
+   TH1 * meEEMaximumgt100ADC_;
+   rfile->GetObject("DQMData/EcalDigiTask/EcalDigiTask Endcap maximum position gt 100 ADC;1",meEEMaximumgt100ADC_);
+   meEEMaximumgt100ADC_;
 
    Ecal->cd(1);
-   meEBMaximum_->Draw();
+   meEBMaximumgt100ADC_->Draw();
    Ecal->cd(2);
-   meEEMaximum_->Draw();
-   Ecal->Print("Maximum_position.eps");
+   meEEMaximumgt100ADC_->Draw();
+   Ecal->Print("Maximum_position_gt100ADC.eps");
+ }
+
+ if (1) {
+   TCanvas * Ecal = new TCanvas("Ecal","Ecal",800,1000);
+   Ecal->Divide(1,2);
+
+   TH1 * meEBMaximumgt10ADC_;
+   rfile->GetObject("DQMData/EcalDigiTask/EcalDigiTask Barrel maximum position gt 10 ADC;1",meEBMaximumgt10ADC_);
+   meEBMaximumgt10ADC_;
+
+   TH1 * meEEMaximumgt10ADC_;
+   rfile->GetObject("DQMData/EcalDigiTask/EcalDigiTask Endcap maximum position gt 10 ADC;1",meEEMaximumgt10ADC_);
+   meEEMaximumgt10ADC_;
+
+   Ecal->cd(1);
+   meEBMaximumgt10ADC_->Draw();
+   Ecal->cd(2);
+   meEEMaximumgt10ADC_->Draw();
+   Ecal->Print("Maximum_position_gt10ADC.eps");
  }
 
  // Preshower ADC counts

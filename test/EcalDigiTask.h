@@ -4,8 +4,8 @@
 /*
  * \file EcalDigiTask.h
  *
- * $Date: 2006/02/28 18:18:47 $
- * $Revision: 1.2 $
+ * $Date: 2006/03/10 17:25:05 $
+ * $Revision: 1.3 $
  * \author F. Cossutti
  *
 */
@@ -116,11 +116,23 @@ private:
  MonitorElement* meEBPedestal_;
  MonitorElement* meEEPedestal_;
 
- MonitorElement* meEBMaximum_;
- MonitorElement* meEEMaximum_; 
+ MonitorElement* meEBMaximumgt100ADC_;
+ MonitorElement* meEEMaximumgt100ADC_; 
+
+ MonitorElement* meEBMaximumgt10ADC_;
+ MonitorElement* meEEMaximumgt10ADC_; 
 
  MonitorElement* meEBDigiSimRatio_;
  MonitorElement* meEEDigiSimRatio_;
+
+ MonitorElement* meEBDigiSimRatiogt10ADC_;
+ MonitorElement* meEEDigiSimRatiogt10ADC_;
+
+ MonitorElement* meEBDigiSimRatiogt100ADC_;
+ MonitorElement* meEEDigiSimRatiogt100ADC_;
+
+ MonitorElement* meEBnADCafterSwitch_;
+ MonitorElement* meEEnADCafterSwitch_;
 
 };
 

@@ -1,8 +1,8 @@
 /*
  * \file EcalDigiTask.cc
  *
- * $Date: 2006/03/10 17:25:05 $
- * $Revision: 1.3 $
+ * $Date: 2006/03/14 15:16:39 $
+ * $Revision: 1.4 $
  * \author F. Cossutti
  *
 */
@@ -260,10 +260,8 @@ void EcalDigiTask::analyze(const Event& e, const EventSetup& c){
   theSimTracks.insert(theSimTracks.end(),SimTk->begin(),SimTk->end());
   theSimVertexes.insert(theSimVertexes.end(),SimVtx->begin(),SimVtx->end());
 
-  HepMC::GenEvent * myGenEvent = new  HepMC::GenEvent(*(MCEvt->GetEvent()));
-   
-  for ( HepMC::GenEvent::particle_iterator p = myGenEvent->particles_begin();
-        p != myGenEvent->particles_end(); ++p ) {
+  for ( HepMC::GenEvent::particle_const_iterator p = MCEvt->GetEvent()->particles_begin();
+        p != MCEvt->GetEvent()->particles_end(); ++p ) {
 
     Hep3Vector hmom = Hep3Vector((*p)->momentum().vect());
     double htheta = hmom.theta();

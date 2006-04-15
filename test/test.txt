@@ -6,7 +6,7 @@ process testECALDigi =
   # input
   source = PoolSource {
 #     untracked string fileName = '/afs/cern.ch/user/g/govoni/public/CMSSW/rootfiles/simevent.root'
-     untracked string fileName = '/afs/cern.ch/user/g/govoni/public/CMSSW/rootfiles/e100.root'
+     untracked vstring fileNames = {'file:/afs/cern.ch/user/g/govoni/public/CMSSW/rootfiles/e100.root'}
      untracked int32 maxEvents = -1
      untracked uint32 debugVebosity = 10
      untracked bool   debugFlag     = true
@@ -30,7 +30,7 @@ process testECALDigi =
    module mix = MixingModule {
          secsource input = PoolRASource  {
 #			       untracked vstring fileNames = {'/afs/cern.ch/user/g/govoni/public/CMSSW/rootfiles/simevent.root'}
-			       untracked vstring fileNames = {'/afs/cern.ch/user/g/govoni/public/CMSSW/rootfiles/e100.root'}
+			       untracked vstring fileNames = {'file:/afs/cern.ch/user/g/govoni/public/CMSSW/rootfiles/e100.root'}
                    string type = "poisson"
                    double averageNumber = 0
                    int32 minBunch = xxx

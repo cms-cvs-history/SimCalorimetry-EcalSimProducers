@@ -1,5 +1,8 @@
 module ecaldigi = EcalDigiProducer
 {
+  string EBdigiCollection = ""
+  string EEdigiCollection = ""
+  string ESdigiCollection = ""
   double simHitToPhotoelectronsBarrel = 2250.
   double simHitToPhotoelectronsEndcap = 1800.
   double photoelectronsToAnalogBarrel = 0.000444444

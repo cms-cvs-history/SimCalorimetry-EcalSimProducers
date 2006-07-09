@@ -10,7 +10,7 @@
 
   include "SimCalorimetry/EcalSimProducers/data/ecaldigi.cfi"
 
-  include "SimCalorimetry/EcalTrigPrimProducers/data/ecalTPG.cfi"
+  include "SimCalorimetry/EcalTrigPrimProducers/data/ecaltp.cfi"
 
   include "SimCalorimetry/EcalSelectiveReadoutProducers/data/ecalSelectiveReadout.cfi"
 

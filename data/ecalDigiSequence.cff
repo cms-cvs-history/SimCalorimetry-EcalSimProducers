@@ -1,0 +1,21 @@
+
+  # Calo geometry service model
+  include "Geometry/CaloEventSetup/data/CaloGeometry.cfi"
+  include "Geometry/CaloEventSetup/data/EcalTrigTowerConstituents.cfi"
+
+  # use trivial ESProducer for tests
+  include "CalibCalorimetry/EcalTrivialCondModules/data/EcalTrivialCondRetriever.cfi"
+
+  # unsuppressed digis simulation
+  include "SimCalorimetry/EcalSimProducers/data/ecaldigi.cfi"
+
+  # Trigger Primitives Generation producer
+  include "SimCalorimetry/EcalTrigPrimProducers/data/ecaltp.cfi"
+
+  # Selective Readout Processor producer
+  include "SimCalorimetry/EcalSelectiveReadoutProducers/data/ecalSelectiveReadout.cfi"
+
+  # Preshower Zero suppression producer
+  include "SimCalorimetry/EcalZeroSuppressionProducers/data/esZeroSuppression.cfi"
+
+  sequence ecalDigiSequence = { ecaldigi, ecaltp, ecalSelectiveReadout, esZeroSuppression }

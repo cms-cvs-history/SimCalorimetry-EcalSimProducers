@@ -10,7 +10,10 @@
   include "SimCalorimetry/EcalSimProducers/data/ecaldigi.cfi"
 
   # Trigger Primitives Generation producer
-  include "SimCalorimetry/EcalTrigPrimProducers/data/ecaltp.cfi"
+  #
+  # not used in 0_8_0
+  #
+  #include "SimCalorimetry/EcalTrigPrimProducers/data/ecaltp.cfi"
 
   # Selective Readout Processor producer
   include "SimCalorimetry/EcalSelectiveReadoutProducers/data/ecalSelectiveReadout.cfi"
@@ -18,4 +21,7 @@
   # Preshower Zero suppression producer
   include "SimCalorimetry/EcalZeroSuppressionProducers/data/esZeroSuppression.cfi"
 
-  sequence ecalDigiSequence = { ecaldigi, ecaltp, ecalSelectiveReadout, esZeroSuppression }
+  #sequence ecalDigiSequence = { ecaldigi, ecaltp, ecalSelectiveReadout, esZeroSuppression }
+
+  sequence ecalDigiSequence = { ecaldigi, ecalSelectiveReadout, esZeroSuppression }
+

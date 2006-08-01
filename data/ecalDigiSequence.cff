@@ -21,7 +21,7 @@
   # Preshower Zero suppression producer
   include "SimCalorimetry/EcalZeroSuppressionProducers/data/esZeroSuppression.cfi"
 
-  #sequence ecalDigiSequence = { ecaldigi, ecaltp, ecalSelectiveReadout, esZeroSuppression }
+  #sequence ecalDigiSequence = { ecalUnsuppressedDigis, ecaltp, ecalSelectiveReadout, esZeroSuppression }
 
-  sequence ecalDigiSequence = { ecaldigi, ecalSelectiveReadout, esZeroSuppression }
+  sequence ecalDigiSequence = { ecalUnsuppressedDigis, ecalSelectiveReadout, esZeroSuppression }
 

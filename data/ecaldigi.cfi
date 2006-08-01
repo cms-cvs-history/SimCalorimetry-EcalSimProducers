@@ -1,4 +1,4 @@
-module ecaldigi = EcalDigiProducer
+module ecalUnsuppressedDigis = EcalDigiProducer
 {
   string EBdigiCollection = ""
   string EEdigiCollection = ""

@@ -13,15 +13,15 @@
   #
   # not used in 0_8_0
   #
-  #include "SimCalorimetry/EcalTrigPrimProducers/data/ecaltp.cfi"
+  #include "SimCalorimetry/EcalTrigPrimProducers/data/ecalTriggerPrimitiveDigis.cfi"
 
   # Selective Readout Processor producer
-  include "SimCalorimetry/EcalSelectiveReadoutProducers/data/ecalSelectiveReadout.cfi"
+  include "SimCalorimetry/EcalSelectiveReadoutProducers/data/ecalDigis.cfi"
 
   # Preshower Zero suppression producer
-  include "SimCalorimetry/EcalZeroSuppressionProducers/data/esZeroSuppression.cfi"
+  include "SimCalorimetry/EcalZeroSuppressionProducers/data/ecalPreshowerDigis.cfi"
 
-  #sequence ecalDigiSequence = { ecalUnsuppressedDigis, ecaltp, ecalSelectiveReadout, esZeroSuppression }
+  #sequence ecalDigiSequence = { ecalUnsuppressedDigis, ecalTriggerPrimitiveDigis, ecalDigis, ecalPreshowerDigis }
 
-  sequence ecalDigiSequence = { ecalUnsuppressedDigis, ecalSelectiveReadout, esZeroSuppression }
+  sequence ecalDigiSequence = { ecalUnsuppressedDigis, ecalDigis, ecalPreshowerDigis }
 

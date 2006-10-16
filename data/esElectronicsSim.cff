@@ -1,0 +1,8 @@
+block es_electronics_sim = {
+  int32 ESGain = 1
+  bool doESNoise = true
+  double ESNoiseSigma = 3.
+  int32 ESBaseline = 1000
+  double ESMIPADC = 9.
+  double ESMIPkeV = 78.47
+}

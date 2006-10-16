@@ -1,0 +1,5 @@
+block ecal_electronics_sim = {
+  bool doNoise = true
+  bool applyConstantTerm = true
+  double ConstantTerm = 0.003
+}

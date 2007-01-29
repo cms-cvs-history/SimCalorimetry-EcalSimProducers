@@ -2,9 +2,11 @@
   # Calo geometry service model
   include "Geometry/CaloEventSetup/data/CaloGeometry.cfi"
   include "Geometry/CaloEventSetup/data/EcalTrigTowerConstituents.cfi"
-
+#
+# removed by tommaso
+#
   # use trivial ESProducer for tests
-  include "CalibCalorimetry/EcalTrivialCondModules/data/EcalTrivialCondRetriever.cfi"
+#  include "CalibCalorimetry/EcalTrivialCondModules/data/EcalTrivialCondRetriever.cfi"
 
   # unsuppressed digis simulation
   include "SimCalorimetry/EcalSimProducers/data/ecaldigi.cfi"

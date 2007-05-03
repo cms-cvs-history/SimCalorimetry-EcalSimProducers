@@ -1,6 +1,6 @@
 
   # Calo geometry service model
-  include "Geometry/CaloEventSetup/data/CaloGeometry.cfi"
+  include "Geometry/CaloEventSetup/data/CaloGeometry.cff"
   include "Geometry/CaloEventSetup/data/EcalTrigTowerConstituents.cfi"
 #
 # removed by tommaso

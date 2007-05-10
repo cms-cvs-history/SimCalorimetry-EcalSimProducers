@@ -4,6 +4,8 @@ include "SimCalorimetry/EcalSimProducers/data/ecalElectronicsSim.cff"
 
 include "SimCalorimetry/EcalSimProducers/data/esElectronicsSim.cff"
 
+include "SimCalorimetry/EcalSimProducers/data/ecalNotContainmentSim.cff"
+
 module ecalUnsuppressedDigis = EcalDigiProducer
 {
   string EBdigiCollection = ""
@@ -15,6 +17,8 @@ module ecalUnsuppressedDigis = EcalDigiProducer
   using ecal_electronics_sim
 
   using es_electronics_sim
+
+  using ecal_notCont_sim	
 
 #  vdouble CorrelatedNoiseMatrix = { 1.00, 0.67, 0.53, 0.44, 0.39, 0.36, 0.38, 0.35, 0.36, 0.32,
 #                                    0.67, 1.00, 0.67, 0.53, 0.44, 0.39, 0.36, 0.38, 0.35, 0.36,

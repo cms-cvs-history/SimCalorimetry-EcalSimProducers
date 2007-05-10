@@ -1,0 +1,4 @@
+block ecal_notCont_sim = {
+  double EBs25notContainment = 0.97	
+  double EEs25notContainment = 0.97	
+}

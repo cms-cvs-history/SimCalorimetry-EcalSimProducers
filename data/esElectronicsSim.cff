@@ -4,5 +4,5 @@ block es_electronics_sim = {
   double ESNoiseSigma = 3.
   int32 ESBaseline = 1000
   double ESMIPADC = 9.
-  double ESMIPkeV = 78.47
+  double ESMIPkeV = 81.08
 }

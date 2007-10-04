@@ -1,0 +1,7 @@
+  module ESDigisReferenceDistrib = ESDigisReferenceDistrib { 
+    InputTag ESdigiCollection = ecalPreshowerDigis
+
+    untracked string outputTxtFile  = 'esRefHistosFile.txt'
+    untracked string outputRootFile = 'esRefHistosFile.root'
+    untracked bool verbose = true
+  }

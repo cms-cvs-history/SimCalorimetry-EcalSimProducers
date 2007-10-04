@@ -1,8 +1,13 @@
 block es_electronics_sim = {
+  bool doFast = false
   int32 ESGain = 1
   bool doESNoise = true
   double ESNoiseSigma = 3.
   int32 ESBaseline = 1000
   double ESMIPADC = 9.
   double ESMIPkeV = 81.08
+  int32 numESdetId = 137728
+  double zsThreshold = 2.98576
+  string refHistosFile = 'SimCalorimetry/EcalSimProducers/data/esRefHistosFile.txt'
+
 }

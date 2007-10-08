@@ -5,11 +5,10 @@
 
   # removed by tommaso
   # use trivial ESProducer for tests
-  # include "CalibCalorimetry/EcalTrivialCondModules/data/EcalTrivialCondRetriever.cfi"
+  #  include "CalibCalorimetry/EcalTrivialCondModules/data/EcalTrivialCondRetriever.cfi"
 
-  # unsuppressed digis simulation - fast preshower
+  # unsuppressed digis simulation - full ES digitization
   include "SimCalorimetry/EcalSimProducers/data/ecaldigi.cfi"
-  replace ecalUnsuppressedDigis.doFast = true
 
   # ecal mapping
   include "Geometry/EcalMapping/data/EcalMapping.cfi"
@@ -23,8 +22,7 @@
 
   # Preshower Zero suppression producer
   include "SimCalorimetry/EcalZeroSuppressionProducers/data/ecalPreshowerDigis.cfi"
-  replace ecalPreshowerDigis.ESNoiseSigma = 2.98576 
 
-  sequence ecalDigiSequence = { ecalUnsuppressedDigis, ecalTriggerPrimitiveDigis, ecalDigis, ecalPreshowerDigis }
+  sequence ecalDigiSequenceComplete = { ecalUnsuppressedDigis, ecalTriggerPrimitiveDigis, ecalDigis, ecalPreshowerDigis }
 
 

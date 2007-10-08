@@ -25,6 +25,6 @@
   include "SimCalorimetry/EcalZeroSuppressionProducers/data/ecalPreshowerDigis.cfi"
    replace ecalPreshowerDigis.ESNoiseSigma = 2.98576 
 
-  sequence ecalDigiSequence = { ecalUnsuppressedDigis, ecalTriggerPrimitiveDigis, ecalDigis, ecalPreshowerDigis }
+  sequence ecalDigiSequenceFast = { ecalUnsuppressedDigis, ecalTriggerPrimitiveDigis, ecalDigis, ecalPreshowerDigis }
 
 

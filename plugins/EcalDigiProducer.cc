@@ -18,9 +18,7 @@
 EcalDigiProducer::EcalDigiProducer(const edm::ParameterSet& params) 
 :  theGeometry(0)
 {
-
   /// output collections names
-
   EBdigiCollection_ = params.getParameter<std::string>("EBdigiCollection");
   EEdigiCollection_ = params.getParameter<std::string>("EEdigiCollection");
   ESdigiCollection_ = params.getParameter<std::string>("ESdigiCollection");
@@ -31,7 +29,6 @@ EcalDigiProducer::EcalDigiProducer(const edm::ParameterSet& params)
 
 
   // initialize the default valuer for hardcoded parameters and the EB/EE shape
-
   double simHitToPhotoelectronsBarrel = params.getParameter<double>("simHitToPhotoelectronsBarrel");
   double simHitToPhotoelectronsEndcap = params.getParameter<double>("simHitToPhotoelectronsEndcap");
   double photoelectronsToAnalogBarrel = params.getParameter<double>("photoelectronsToAnalogBarrel");
@@ -118,56 +115,49 @@ void EcalDigiProducer::produce(edm::Event& event, const edm::EventSetup& eventSe
 {
 
   // Step A: Get Inputs
-
   checkGeometry(eventSetup);
   checkCalibrations(eventSetup);
 
   // Get input
-  edm::Handle<CrossingFrame> crossingFrame;
-  event.getByType(crossingFrame);
-
+  edm::Handle<CrossingFrame<PCaloHit> > crossingFrame;
+  
   // test access to SimHits
   const std::string barrelHitsName("EcalHitsEB");
   const std::string endcapHitsName("EcalHitsEE");
   const std::string preshowerHitsName("EcalHitsES");
 
   bool isEB = true;
+  event.getByLabel("mix",barrelHitsName,crossingFrame);
   MixCollection<PCaloHit> * EBHits = 0 ;
   try {
-    EBHits = new MixCollection<PCaloHit>(crossingFrame.product(), barrelHitsName);
+    EBHits = new MixCollection<PCaloHit>(crossingFrame.product());
   } catch ( cms::Exception &e ) { isEB = false; }
   if ( ! EBHits->inRegistry() || theBarrelDets.size() == 0 ) isEB = false;
   
-  //  std::auto_ptr<MixCollection<PCaloHit> > 
-  //    barrelHits( new MixCollection<PCaloHit>(crossingFrame.product(), barrelHitsName) );
 
   bool isEE = true;
+  event.getByLabel("mix",endcapHitsName,crossingFrame);
   MixCollection<PCaloHit> * EEHits = 0 ;
   try {
-    EEHits = new MixCollection<PCaloHit>(crossingFrame.product(), endcapHitsName);
+    EEHits = new MixCollection<PCaloHit>(crossingFrame.product());
   } catch ( cms::Exception &e ) { isEE = false; }
   if ( ! EEHits->inRegistry() || theEndcapDets.size() == 0 ) isEE = false;
 
-  //  std::auto_ptr<MixCollection<PCaloHit> > 
-  //    endcapHits( new MixCollection<PCaloHit>(crossingFrame.product(),endcapHitsName) );
 
   bool isES = true;
+  event.getByLabel("mix",preshowerHitsName,crossingFrame);
   MixCollection<PCaloHit> * ESHits = 0 ;
   try {
-    ESHits = new MixCollection<PCaloHit>(crossingFrame.product(), preshowerHitsName);
+    ESHits = new MixCollection<PCaloHit>(crossingFrame.product());
   } catch ( cms::Exception &e ) { isES = false; }
   if ( ! ESHits->inRegistry() || theESDets.size() == 0 ) isES = false;
 
-  //    std::auto_ptr<MixCollection<PCaloHit> >
-  //      preshowerHits( new MixCollection<PCaloHit>(crossingFrame.product(), preshowerHitsName) ); 
-  
   // Step B: Create empty output
   std::auto_ptr<EBDigiCollection> barrelResult(new EBDigiCollection());
   std::auto_ptr<EEDigiCollection> endcapResult(new EEDigiCollection());
   std::auto_ptr<ESDigiCollection> preshowerResult(new ESDigiCollection());
 
   // run the algorithm
-
   CaloDigiCollectionSorter sorter(5);
 
   if ( isEB ) {

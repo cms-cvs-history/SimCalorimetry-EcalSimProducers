@@ -6,8 +6,8 @@ block es_electronics_sim = {
   int32 ESBaseline = 1000
   double ESMIPADC = 9.
   double ESMIPkeV = 81.08
-  int32 numESdetId = 137728
-  double zsThreshold = 2.98576
+  int32 numESdetId = 137216
+  double zsThreshold = 2.98595
   string refHistosFile = 'SimCalorimetry/EcalSimProducers/data/esRefHistosFile.txt'
 
 }

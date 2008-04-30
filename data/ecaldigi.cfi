@@ -12,6 +12,8 @@ module simEcalUnsuppressedDigis = EcalDigiProducer
   string EEdigiCollection = ""
   string ESdigiCollection = ""
 
+  string hitsProducer = "g4SimHits"
+
   using ecal_sim_parameter_map 
 
   using ecal_electronics_sim

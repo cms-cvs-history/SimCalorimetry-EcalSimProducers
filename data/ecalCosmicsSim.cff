@@ -1,0 +1,5 @@
+block ecal_cosmics_sim = {
+
+  bool cosmicsPhase = false
+  double cosmicsShift = 0.
+}

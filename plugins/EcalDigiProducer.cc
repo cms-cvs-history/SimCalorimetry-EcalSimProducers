@@ -99,6 +99,7 @@ EcalDigiProducer::EcalDigiProducer( const edm::ParameterSet& params ) :
    const double apdSimToPELow   ( params.getParameter<double> ("apdSimToPELow" ) ) ;
    const double apdSimToPEHigh  ( params.getParameter<double> ("apdSimToPEHigh") ) ;
    const double apdTimeOffset   ( params.getParameter<double> ("apdTimeOffset" ) ) ;
+   const double apdTimeOffWidth ( params.getParameter<double> ("apdTimeOffWidth" ) ) ;
    const bool   apdDoPEStats    ( params.getParameter<bool>   ("apdDoPEStats"  ) ) ;
    const std::string apdDigiTag ( params.getParameter<std::string>("apdDigiTag") ) ;
 
@@ -127,6 +128,7 @@ EcalDigiProducer::EcalDigiProducer( const edm::ParameterSet& params ) :
 					   apdSimToPELow   ,
 					   apdSimToPEHigh  ,
 					   apdTimeOffset   ,
+					   apdTimeOffWidth ,
 					   apdDoPEStats    ,
 					   apdDigiTag        ) ;
   
@@ -502,7 +504,7 @@ EcalDigiProducer::checkCalibrations( const edm::EventSetup& eventSetup )
    const ESPedestals*           espeds     ( hesPedestals.product() ) ;
    const ESIntercalibConstants* esmips     ( hesMIPs.product()      ) ;
    const ESMIPToGeVConstant*    esMipToGeV ( hesMIPToGeV.product()  ) ;
-   const int ESGain ( esgain->getESGain() ) ;  
+   const int ESGain ( 1.1 > esgain->getESGain() ? 1 : 2 ) ;  
    const double ESMIPToGeV ( ( 1 == ESGain ) ?
 			     esMipToGeV->getESValueLow()  :
 			     esMipToGeV->getESValueHigh()   ) ; 

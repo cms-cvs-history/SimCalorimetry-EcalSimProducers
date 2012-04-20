@@ -133,10 +133,11 @@ EcalDigiProducer::EcalDigiProducer( const edm::ParameterSet& params, edm::EDProd
    m_EBCorrNoise       (   ) ,
    m_EECorrNoise       (   ) 
 {
-   if(m_apdSeparateDigi) mixMod.produces<EBDigiCollection>(m_apdDigiTag);
-   mixMod.produces<EBDigiCollection>(m_EBdigiCollection);
-   mixMod.produces<EEDigiCollection>(m_EEdigiCollection);
-   mixMod.produces<ESDigiCollection>(m_ESdigiCollection);
+   std::string const instance("simEcalUnsuppressedDigis");
+   if(m_apdSeparateDigi) mixMod.produces<EBDigiCollection>(instance + m_apdDigiTag);
+   mixMod.produces<EBDigiCollection>(instance + m_EBdigiCollection);
+   mixMod.produces<EEDigiCollection>(instance + m_EEdigiCollection);
+   mixMod.produces<ESDigiCollection>(instance + m_ESdigiCollection);
 
    const std::vector<double> ebCorMatG12 = params.getParameter< std::vector<double> >("EBCorrNoiseMatrixG12");
    const std::vector<double> eeCorMatG12 = params.getParameter< std::vector<double> >("EECorrNoiseMatrixG12");
@@ -385,15 +386,16 @@ EcalDigiProducer::finalizeEvent(edm::Event& event, edm::EventSetup const& eventS
    }
    edm::LogInfo("EcalDigi") << "ES Digis: " << preshowerResult->size();
 
+   std::string const instance("simEcalUnsuppressedDigis");
 
    // Step D: Put outputs into event
    if( m_apdSeparateDigi ) {
-      event.put( apdResult,    m_apdDigiTag         ) ;
+      event.put( apdResult,    instance + m_apdDigiTag         ) ;
    }
 
-   event.put( barrelResult,    m_EBdigiCollection ) ;
-   event.put( endcapResult,    m_EEdigiCollection ) ;
-   event.put( preshowerResult, m_ESdigiCollection ) ;
+   event.put( barrelResult,    instance + m_EBdigiCollection ) ;
+   event.put( endcapResult,    instance + m_EEdigiCollection ) ;
+   event.put( preshowerResult, instance + m_ESdigiCollection ) ;
 }
 
 void  

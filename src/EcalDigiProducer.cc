@@ -53,6 +53,7 @@ EcalDigiProducer::EcalDigiProducer( const edm::ParameterSet& params ) :
    m_EEdigiCollection ( params.getParameter<std::string>("EEdigiCollection") ) ,
    m_ESdigiCollection ( params.getParameter<std::string>("ESdigiCollection") ) ,
    m_hitsProducerTag  ( params.getParameter<std::string>("hitsProducer"    ) ) ,
+   m_useLCcorrection  ( 0 ),
    m_apdSeparateDigi  ( params.getParameter<bool>       ("apdSeparateDigi") ) ,
 
    m_EBs25notCont     ( params.getParameter<double>     ("EBs25notContainment") ) ,
@@ -129,8 +130,7 @@ EcalDigiProducer::EcalDigiProducer( const edm::ParameterSet& params ) :
    m_APDCoder          ( 0 ) ,
    m_Geometry          ( 0 ) ,
    m_EBCorrNoise       (   ) ,
-   m_EECorrNoise       (   ) ,
-   m_useLCcorrection   ( 0 )
+   m_EECorrNoise       (   ) 
 {
    const std::vector<double> ebCorMatG12 = params.getParameter< std::vector<double> >("EBCorrNoiseMatrixG12");
    const std::vector<double> eeCorMatG12 = params.getParameter< std::vector<double> >("EECorrNoiseMatrixG12");

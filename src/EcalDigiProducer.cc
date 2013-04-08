@@ -129,7 +129,8 @@ EcalDigiProducer::EcalDigiProducer( const edm::ParameterSet& params ) :
    m_APDCoder          ( 0 ) ,
    m_Geometry          ( 0 ) ,
    m_EBCorrNoise       (   ) ,
-   m_EECorrNoise       (   ) 
+   m_EECorrNoise       (   ) ,
+   m_useLCcorrection   ( 0 )
 {
    const std::vector<double> ebCorMatG12 = params.getParameter< std::vector<double> >("EBCorrNoiseMatrixG12");
    const std::vector<double> eeCorMatG12 = params.getParameter< std::vector<double> >("EECorrNoiseMatrixG12");

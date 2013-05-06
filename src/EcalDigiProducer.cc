@@ -53,7 +53,7 @@ EcalDigiProducer::EcalDigiProducer( const edm::ParameterSet& params ) :
    m_EEdigiCollection ( params.getParameter<std::string>("EEdigiCollection") ) ,
    m_ESdigiCollection ( params.getParameter<std::string>("ESdigiCollection") ) ,
    m_hitsProducerTag  ( params.getParameter<std::string>("hitsProducer"    ) ) ,
-   m_useLCcorrection  ( 0 ),
+   m_useLCcorrection  ( params.getParameter<bool>       ("UseLCcorrection") ) ,
    m_apdSeparateDigi  ( params.getParameter<bool>       ("apdSeparateDigi") ) ,
 
    m_EBs25notCont     ( params.getParameter<double>     ("EBs25notContainment") ) ,
